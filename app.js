@@ -10,6 +10,9 @@ const contactContent = "Scelerisque eleifend donec pretium vulputate sapien. Rho
 
 const app = express();
 
+// Empty array to add post content
+let posts = [];
+
 app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({extended: true}));
@@ -19,6 +22,7 @@ app.use(express.static("public"));
 //Home Page route (Root route).
 
 app.get('/', function(req, res) {
+  console.log(posts);
   res.render('home', {
     startingContent: homeStartingContent
   });
@@ -57,6 +61,8 @@ app.post('/compose', function(req, res){
     Title: req.body.postTitle,
     content: req.body.postBody
   };
+  posts.push(post);
+  res.redirect("/");
 });
 
 //Spinning up the server.
