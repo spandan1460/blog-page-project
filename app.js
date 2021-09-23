@@ -22,9 +22,9 @@ app.use(express.static("public"));
 //Home Page route (Root route).
 
 app.get('/', function(req, res) {
-  console.log(posts);
   res.render('home', {
-    startingContent: homeStartingContent
+    startingContent: homeStartingContent,
+    posts: posts
   });
 });
 
@@ -54,7 +54,7 @@ app.get('/compose', function(req, res){
 });
 
 
-
+//Post request(content which is passed from the compose page).
 
 app.post('/compose', function(req, res){
   const post = {
