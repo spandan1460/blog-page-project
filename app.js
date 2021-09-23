@@ -53,8 +53,11 @@ app.get('/compose', function(req, res){
 
 
 app.post('/compose', function(req, res){
-  console.log(req.body.postTitle);
-})
+  const post = {
+    Title: req.body.postTitle,
+    content: req.body.postBody
+  };
+});
 
 //Spinning up the server.
 
