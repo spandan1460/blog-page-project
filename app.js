@@ -46,6 +46,19 @@ app.get('/contact', function(req, res){
   });
 });
 
+//Posts Route
+app.get('/posts/:postName', function(req, res){
+  const requestedTitle = req.params.postName;
+ posts.forEach(function(post) {
+   const storedTitle = post.Title;
+   if(storedTitle === requestedTitle) {
+     console.log("Match Found!");
+   }
+   else{
+     console.log("Match not Found!");
+   }
+ });
+});
 
 //Compose page route.
 
